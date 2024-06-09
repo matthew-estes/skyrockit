@@ -6,10 +6,70 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add a New App</title>
+    <style>
+      body {
+        margin-top: 50px;
+        font-family: arial, sans-serif;
+        background-color: lightgray;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+  
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        background-color: whitesmoke;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 400px;
+      }
+  
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        font-family: arial, sans-serif;
+      }
+      label {
+        margin: 5px 0 5px 0;
+      }
+  
+      input {
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      /* textarea {
+        margin-bottom: 15px;
+        padding: 25px;
+      } */
+
+
+      button {
+        padding: 10px;
+        background-color: #0077cc;
+        border: none;
+        border-radius: 5px;
+        color: whitesmoke;
+        font-size: 20px;
+        cursor: pointer;
+        margin-top: 35px;
+        margin-bottom: 20px;
+      }
+    </style>
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Add a New App</h1>
+    <div>
+    <h1>Add an Application</h1>
     <form action="/users/<%=user._id %>/applications" method="POST">
       <label for="company">Company:</label>
       <input type="text" name="company" id="company" />
@@ -17,11 +77,12 @@
       <label for="title">Title:</label>
       <input type="text" name="title" id="title" />
 
+      <label for="postingLink">Posting Link:</label>
+      <input type="text" name="postingLink" id="postingLink" />
+
       <label for="notes">Notes:</label>
       <textarea name="notes" id="notes"></textarea>
 
-      <label for="postingLink">Posting Link:</label>
-      <input type="text" name="postingLink" id="postingLink" />
 
       <label for="status">Status:</label>
       <select id="status" name="status">
@@ -31,7 +92,8 @@
         <option value="rejected">Rejected</option>
         <option value="accepted">Accepted</option>
       </select>
-      <button type="submit">Add Application</button>
+      <button type="submit">Submit</button>
+    </div>
     </form>
   </body>
 </html>
